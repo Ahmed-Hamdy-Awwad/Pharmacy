@@ -19,6 +19,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^api/items/$', views.list_item),
-    url(r'^api/trx/$', views.list_trx),
+    url(r'^api/items/$', views.listItem),
+    url(r'^api/trx/$', views.listTrx),
 ]

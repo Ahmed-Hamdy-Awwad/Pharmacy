@@ -10,7 +10,7 @@ from .serializers import *
 # Create your views here.
 
 @api_view(['GET', 'POST'])
-def list_item(request):
+def listItem(request):
 
 	if request.method == 'GET':
 		items = Items.objects.all()
@@ -30,7 +30,7 @@ def list_item(request):
 	return Response(status = status.HTTP_201_CREATED)
 
 @api_view(['GET', 'POST'])
-def list_trx(request):
+def listTrx(request):
 
 	if request.method == 'POST':
 		item = request.data['itemCode']
