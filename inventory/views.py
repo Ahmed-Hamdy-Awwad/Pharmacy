@@ -39,5 +39,3 @@ def list_trx(request):
 		print trx
 		serializer = TrxSerializer(trx, context={'request': request}, many=True)
 		return Response({'data': serializer.data})
-	
-	return Response(status = status.HTTP_201_CREATED)

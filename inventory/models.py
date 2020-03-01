@@ -27,3 +27,6 @@ class Transactions(models.Model):
 	trxType = models.CharField(choices=TRX_TYPE_CHOICES, default=DISPATCH, max_length=255)
 	trxDate = models.DateTimeField().auto_now_add
 	itemCode = models.ForeignKey(Items, on_delete=models.CASCADE)
+
+	def __str__(self):
+		return self.trxType

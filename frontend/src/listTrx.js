@@ -12,17 +12,18 @@ class ListTrx extends Component {
             };
         }
 
-	list_trx(event){
+	listTrx(){
 		const code = document.getElementById('itemCode').value;
 		const url = `${API_URL}/api/trx/`;
 		console.log(code)
 		return axios.post(url, {itemCode: code}).then(response => response.data)
-	}
+		}
 
 	componentDidMount() {
         var  self  =  this;
-        this.list_trx().then(function (result) {
+        this.listTrx().then(function (result) {
 			self.setState({ trx: result.data})
+			console.log(result.data);
 			console.log(self.state.trx);
 			return(
 				<div>
@@ -30,11 +31,16 @@ class ListTrx extends Component {
 				</div>
 			)
             });
-        }
+		}
+		
+	handleSubmit = event => {
+		event.preventDefault();
+		this.listTrx();
+		};
 
 	render(){
 		return(
-			<form onSubmit={this.list_trx}>
+			<form onSubmit={this.handleSubmit}>
 				<label>Item Code</label>
 				<input id='itemCode' type='text'></input>
 				<input type='submit' value='submit'></input>
