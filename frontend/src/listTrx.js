@@ -15,7 +15,6 @@ class ListTrx extends Component {
 	listTrx(){
 		const code = document.getElementById('itemCode').value;
 		const url = `${API_URL}/api/trx/`;
-		console.log(code)
 		return axios.post(url, {itemCode: code}).then(response => response.data)
 		}
 
@@ -23,8 +22,6 @@ class ListTrx extends Component {
         var  self  =  this;
         this.listTrx().then(function (result) {
 			self.setState({ trx: result.data})
-			console.log(result.data);
-			console.log(self.state.trx);
 			return(
 				<div>
 					
@@ -35,7 +32,7 @@ class ListTrx extends Component {
 		
 	handleSubmit = event => {
 		event.preventDefault();
-		this.listTrx();
+		this.componentDidMount();
 		};
 
 	render(){
