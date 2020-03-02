@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/items/$', views.listItem),
     url(r'^api/trx/$', views.listTrx),
+    url(r'^api/createtrx/$', views.createTrx),
 ]
